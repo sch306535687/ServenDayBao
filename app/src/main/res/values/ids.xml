@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <item type="id" name="welcome" />
+    <item type="id" name="viewpager" />
+    <item type="id" name="point_container" />
+    <item type="id" name="red_point" />
+    <item type="id" name="guide_btn" />
+    <item type="id" name="tab_main" />
+    <item type="id" name="tab_rank" />
+    <item type="id" name="tab_money" />
+    <item type="id" name="tab_count" />
 </resources>

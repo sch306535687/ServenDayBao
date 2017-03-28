@@ -42,12 +42,10 @@ public class WelcomeActivity extends Activity {
                 boolean is_guide_show = WelcomeActivity.this.sharedPreferences.getBoolean("is_guide_show", false);
                 if (is_guide_show) {
                     startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
-                    finish();
                 } else {
                     startActivity(new Intent(WelcomeActivity.this, GuideActivity.class));
-                    finish();
                 }
-
+                finish();
             }
         }, 1000);
     }
