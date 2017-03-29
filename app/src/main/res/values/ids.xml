@@ -9,4 +9,8 @@
     <item type="id" name="tab_rank" />
     <item type="id" name="tab_money" />
     <item type="id" name="tab_count" />
+    <item type="id" name="webview" />
+    <item type="id" name="radioLayout" />
+    <item type="id" name="radioGroup" />
+    <item type="id" name="mainviewpager" />
 </resources>
