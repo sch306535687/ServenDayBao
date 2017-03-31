@@ -9,4 +9,7 @@
     <color name="maintop">#242437</color>
     <color name="orange">#ff9500</color>
     <color name="blue">#2e9dff</color>
+    <color name="mySize">#fffd00</color>
+    <color name="three">#ffc101</color>
+    <color name="two">#ff7a48</color>
 </resources>

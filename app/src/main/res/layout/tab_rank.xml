@@ -4,9 +4,93 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
+    <RadioGroup
+        android:id="@id/radioGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/blue"
         android:gravity="center"
-        android:text="排行榜"/>
+        android:orientation="horizontal"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp">
+
+        <RadioButton
+            android:id="@id/myrank"
+            android:layout_width="90dp"
+            android:layout_height="30dp"
+            android:background="@drawable/rank_lerft_select"
+            android:button="@null"
+            android:gravity="center"
+            android:padding="5dp"
+            android:checked="true"
+            android:text="收益排行"
+            android:textColor="@color/rank_color_select"
+            android:textSize="14sp" />
+
+        <RadioButton
+            android:id="@id/totalrank"
+            android:layout_width="90dp"
+            android:layout_height="30dp"
+            android:background="@drawable/rank_right_select"
+            android:button="@null"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="投资排行"
+            android:textColor="@color/rank_color_select"
+            android:textSize="14sp" />
+    </RadioGroup>
+
+    <ListView
+        android:id="@id/listview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/blue"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:padding="8dp"
+            android:src="@mipmap/rank_default" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="bottom"
+                android:text="黄小名"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@id/income"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="1000000"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@id/rank"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:text="1"
+            android:textColor="@color/mySize"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 </LinearLayout>

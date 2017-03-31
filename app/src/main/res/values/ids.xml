@@ -13,4 +13,10 @@
     <item type="id" name="radioLayout" />
     <item type="id" name="radioGroup" />
     <item type="id" name="mainviewpager" />
+    <item type="id" name="listview" />
+    <item type="id" name="rank" />
+    <item type="id" name="name" />
+    <item type="id" name="income" />
+    <item type="id" name="myrank" />
+    <item type="id" name="totalrank" />
 </resources>
