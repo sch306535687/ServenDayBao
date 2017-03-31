@@ -6,6 +6,7 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 
@@ -17,8 +18,9 @@ import sun.ch.servendaybao.tab.TabCountActivity;
 import sun.ch.servendaybao.tab.TabMainActivity;
 import sun.ch.servendaybao.tab.TabRankActivity;
 import sun.ch.servendaybao.tab.TabSevenActivity;
+import sun.ch.servendaybao.utils.StatusBarUtils;
 
-public class MainActivity extends Activity{
+public class MainActivity extends Activity {
 
 
     private ViewPager mViewPager;
@@ -30,10 +32,11 @@ public class MainActivity extends Activity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        //状态栏颜色
+        StatusBarUtils.setWindowStatusBarColor(this,R.color.maintop);
+        //隐藏导航栏
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
-
-
 
         mScreenHeight = getWindowManager().getDefaultDisplay().getHeight();//获取屏幕高度
         radioLayout = (RelativeLayout) findViewById(R.id.radioLayout);
@@ -47,6 +50,19 @@ public class MainActivity extends Activity{
             }
         });*/
 
+        viewList = new ArrayList<BaseActivity>();
+        //主界面
+        TabMainActivity tabMainActivity = new TabMainActivity(this);
+        viewList.add(tabMainActivity);
+        //排行榜
+        TabRankActivity tabRankActivity = new TabRankActivity(this);
+        viewList.add(tabRankActivity);
+        //7天宝
+        TabSevenActivity tabSevenActivity = new TabSevenActivity(this);
+        viewList.add(tabSevenActivity);
+        //账户
+        TabCountActivity tabCountActivity = new TabCountActivity(this);
+        viewList.add(tabCountActivity);
 
         mViewPager = (ViewPager) findViewById(R.id.mainviewpager);
         radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
@@ -62,7 +78,7 @@ public class MainActivity extends Activity{
                         mViewPager.setCurrentItem(1);
                         break;
                     case R.id.tab_money:
-                        mViewPager.setCurrentItem(2,false);//添加false表示禁止页面切换效果
+                        mViewPager.setCurrentItem(2, false);//添加false表示禁止页面切换效果
                         break;
                     case R.id.tab_count:
                         mViewPager.setCurrentItem(3);
@@ -80,6 +96,15 @@ public class MainActivity extends Activity{
             @Override
             public void onPageSelected(int position) {
                 System.out.println(position);
+                if(position==0){
+                    StatusBarUtils.setWindowStatusBarColor(MainActivity.this,R.color.maintop);
+                } else if(position==1){
+                    StatusBarUtils.setWindowStatusBarColor(MainActivity.this,R.color.blue);
+                }else if(position==2){
+                    StatusBarUtils.setWindowStatusBarColor(MainActivity.this,R.color.orange);
+                }else if(position==3){
+                    //getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                }
                 radioGroup.check(radioGroup.getChildAt(position).getId());
             }
 
@@ -88,21 +113,6 @@ public class MainActivity extends Activity{
 
             }
         });
-
-        viewList = new ArrayList<BaseActivity>();
-        //主界面
-        TabMainActivity tabMainActivity = new TabMainActivity(this);
-        viewList.add(tabMainActivity);
-        //排行榜
-        TabRankActivity tabRankActivity = new TabRankActivity(this);
-        viewList.add(tabRankActivity);
-        //7天宝
-        TabSevenActivity tabSevenActivity = new TabSevenActivity(this);
-        viewList.add(tabSevenActivity);
-        //账户
-        TabCountActivity tabCountActivity = new TabCountActivity(this);
-        viewList.add(tabCountActivity);
-
 
         mViewPager.setAdapter(new MyViewPager());
 

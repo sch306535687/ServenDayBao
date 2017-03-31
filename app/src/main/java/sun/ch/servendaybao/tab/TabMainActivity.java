@@ -24,6 +24,7 @@ public class TabMainActivity extends BaseActivity {
     private LinearLayout pointContain;
     private int pointPosition;
     public int[] ImagesArray = new int[]{R.mipmap.scanner1, R.mipmap.scanner2, R.mipmap.scanner3, R.mipmap.scanner4};
+    private boolean isAdd = true;
 
     public TabMainActivity(Activity activity) {
         super(activity);
@@ -89,16 +90,19 @@ public class TabMainActivity extends BaseActivity {
 
         //初始化圆点
         pointContain = (LinearLayout) mRootView.findViewById(R.id.point_container);
-        for (int i = 0; i < ImagesArray.length; i++) {
-            ImageView point = new ImageView(activity);
-            point.setBackgroundResource(R.drawable.point_select);
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-            if (i != 0) {
-                point.setEnabled(false);
-                params.leftMargin = 6;
+        if(isAdd){
+            isAdd = false;
+            for (int i = 0; i < ImagesArray.length; i++) {
+                ImageView point = new ImageView(activity);
+                point.setBackgroundResource(R.drawable.point_select);
+                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                if (i != 0) {
+                    point.setEnabled(false);
+                    params.leftMargin = 6;
+                }
+                point.setLayoutParams(params);
+                pointContain.addView(point);
             }
-            point.setLayoutParams(params);
-            pointContain.addView(point);
         }
 
         mHandler.sendEmptyMessageDelayed(0, 2000);//发送延迟空消息
