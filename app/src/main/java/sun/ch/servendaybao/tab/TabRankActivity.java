@@ -45,6 +45,7 @@ public class TabRankActivity extends BaseActivity {
     private TextView myName;
     private TextView myIncome;
     private TextView myRank;
+    private RadioGroup mRadioGroup;
     private Handler handler = new Handler(){
         @Override
         public void handleMessage(Message msg) {
@@ -63,7 +64,6 @@ public class TabRankActivity extends BaseActivity {
             }
         }
     };
-    private RadioGroup mRadioGroup;
 
 
     public TabRankActivity(Activity activity) {
@@ -161,6 +161,7 @@ public class TabRankActivity extends BaseActivity {
             }
 
             return view;
+
         }
     }
 
@@ -171,7 +172,7 @@ public class TabRankActivity extends BaseActivity {
     }
 
     //从服务器获取json数据,并封装成对象
-    public void getDataFromServer(final String url) {
+    private void getDataFromServer(final String url) {
         new Thread(new Runnable() {
             @Override
             public void run() {

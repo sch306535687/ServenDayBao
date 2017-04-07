@@ -12,4 +12,6 @@
     <color name="mySize">#fffd00</color>
     <color name="three">#ffc101</color>
     <color name="two">#ff7a48</color>
+    <color name="login_blue">#4681cf</color>
+    <color name="bar_defaule">#f2f2f2</color>
 </resources>

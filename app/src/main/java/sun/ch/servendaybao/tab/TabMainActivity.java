@@ -80,7 +80,7 @@ public class TabMainActivity extends BaseActivity {
                         mHandler.removeCallbacksAndMessages(null);//null表示移除全部消息和回调
                         break;
                     case MotionEvent.ACTION_UP:
-                        mHandler.sendEmptyMessageDelayed(0, 2000);//发送延迟空消息
+                        mHandler.sendEmptyMessageDelayed(0, 3000);//发送延迟空消息
                         break;
                 }
 
@@ -105,7 +105,7 @@ public class TabMainActivity extends BaseActivity {
             }
         }
 
-        mHandler.sendEmptyMessageDelayed(0, 2000);//发送延迟空消息
+        mHandler.sendEmptyMessageDelayed(0, 3000);//发送延迟空消息
     }
 
     Handler mHandler = new Handler() {
@@ -115,7 +115,7 @@ public class TabMainActivity extends BaseActivity {
             currentItem++;
             mViewPager.setCurrentItem(currentItem);
 
-            mHandler.sendEmptyMessageDelayed(0, 2000);//发送延迟空消息
+            mHandler.sendEmptyMessageDelayed(0, 3000);//发送延迟空消息
         }
     };
 

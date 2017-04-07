@@ -29,6 +29,7 @@ public class GuideActivity extends Activity implements View.OnClickListener {
     private int pointLong;
     private ImageView red_point;
     private TextView guide_btn;
+    private boolean is_login_show;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,7 @@ public class GuideActivity extends Activity implements View.OnClickListener {
 
         SharedPreferencesUtil sharedPreferencesUtil = new SharedPreferencesUtil(this);//获取SharedPreferences工具类
         sharedPreferences = sharedPreferencesUtil.getSharedPreferences();
+        is_login_show = sharedPreferences.getBoolean("is_login_show", false);
 
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
         mViewPager.setAdapter(new MyPagerAdapter());
@@ -100,7 +102,11 @@ public class GuideActivity extends Activity implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.guide_btn:
-                startActivity(new Intent(GuideActivity.this, MainActivity.class));
+                if(is_login_show){
+                    startActivity(new Intent(GuideActivity.this, MainActivity.class));
+                }else {
+                    startActivity(new Intent(GuideActivity.this, LoginActivity.class));
+                }
                 sharedPreferences.edit().putBoolean("is_guide_show", true).commit();
                 finish();
                 break;

@@ -46,8 +46,16 @@ public class WelcomeActivity extends Activity {
             @Override
             public void run() {
                 boolean is_guide_show = WelcomeActivity.this.sharedPreferences.getBoolean("is_guide_show", false);
+                boolean is_login_show = WelcomeActivity.this.sharedPreferences.getBoolean("is_login_show", false);
                 if (is_guide_show) {
-                    startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
+
+                    if (is_login_show) {
+                        startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
+                    } else {
+                        startActivity(new Intent(WelcomeActivity.this, LoginActivity.class));
+                    }
+
+
                 } else {
                     startActivity(new Intent(WelcomeActivity.this, GuideActivity.class));
                 }

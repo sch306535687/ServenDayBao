@@ -22,7 +22,10 @@
         </activity>
         <!--引导页-->
         <activity android:name=".GuideActivity" />
-        <!--7天宝页面-->
+        <!--登录页-->
+        <activity android:name=".LoginActivity" />
+        <!--注册页-->
+        <activity android:name=".RegisterActivity" />
     </application>
 
 </manifest>

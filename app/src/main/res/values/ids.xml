@@ -19,4 +19,8 @@
     <item type="id" name="income" />
     <item type="id" name="myrank" />
     <item type="id" name="totalrank" />
+    <item type="id" name="username" />
+    <item type="id" name="password" />
+    <item type="id" name="login" />
+    <item type="id" name="register" />
 </resources>
